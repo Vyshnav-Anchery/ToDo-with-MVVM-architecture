@@ -1,17 +1,38 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const Myapp());
+import 'utils/todo_database.dart';
+import 'view_models/todo_view_model.dart';
+import 'views/todo_screen.dart';
+
+void main() async {
+  final database = TodoDatabase();
+  await database.init();
+
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<TodoDatabase>.value(value: database),
+        ChangeNotifierProvider<TodoViewModel>(
+          create: (_) => TodoViewModel(database),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
-class Myapp extends StatelessWidget {
-  const Myapp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      title: 'Todo App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: TodoScreen(),
     );
   }
 }
