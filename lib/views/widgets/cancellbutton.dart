@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stateless_statefull/utils/constants.dart';
 
 class CancellBttn extends StatelessWidget {
   const CancellBttn({super.key});
@@ -6,6 +7,6 @@ class CancellBttn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () => Navigator.pop(context), child: const Text("Cancell"));
+        onPressed: () => Navigator.pop(context), child: cancellText);
   }
 }

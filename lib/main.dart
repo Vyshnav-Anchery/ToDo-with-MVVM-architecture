@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:stateless_statefull/utils/constants.dart';
+import 'package:stateless_statefull/views/screens/home_screen.dart';
 import 'utils/todo_database.dart';
 import 'view_models/todo_view_model.dart';
-import 'views/todo_screen.dart';
 
 void main() async {
   final database = TodoDatabase();
@@ -28,11 +28,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Todo App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: TodoScreen(),
+      title: todoAppBarTitle,
+      theme: appTheme,
+      home: BotomNavBar(),
     );
   }
 }

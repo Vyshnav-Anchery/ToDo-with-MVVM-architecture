@@ -1,7 +1,20 @@
-const String User_List = "https://jsonplaceholder.typicode.com/users";
+import 'package:flutter/material.dart';
+class ClassName {
+  
+}
+// titles
+const String todoAppBarTitle = 'Todo App';
+const Text notesAppBarTitle = Text('Notes');
+const Text appBarTitle = Text('Todo');
+const String addStringText = 'Add Todo';
+const Text editText = Text("edit");
+const Text cancellText = Text("Cancell");
 
-// errors
-const USER_INVALID_RESPONSE = 100;
-const NO_INTERNET = 101;
-const INVALID_FORMAT = 102;
-const UNKNOWN_ERROR = 103;
+// theme
+ThemeData appTheme = ThemeData(
+  primarySwatch: Colors.blue,
+);
+
+// boxname
+const String boxName = 'todos';
+

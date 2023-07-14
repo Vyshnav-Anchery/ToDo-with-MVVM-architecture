@@ -3,6 +3,7 @@ import '../../utils/todo_database.dart';
 import '../models/todo_model.dart';
 
 class TodoViewModel extends ChangeNotifier {
+  int bottomNavIndex = 0;
   final TodoDatabase _database;
 
   TodoViewModel(this._database);
@@ -28,8 +29,14 @@ class TodoViewModel extends ChangeNotifier {
     await _database.todoBox.deleteAt(index);
     notifyListeners();
   }
-  Future<void> editTodo(int index,Todo value) async {
-    await _database.todoBox.putAt(index,value);
+
+  Future<void> editTodo(int index, Todo value) async {
+    await _database.todoBox.putAt(index, value);
+    notifyListeners();
+  }
+
+  Future<void> bottomNav(value) async {
+    bottomNavIndex = value;
     notifyListeners();
   }
 }
