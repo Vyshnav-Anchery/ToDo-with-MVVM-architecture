@@ -10,6 +10,7 @@ const String addStringText = 'Add Todo';
 const String addNoteTitleText = 'Add note title';
 const String addNoteBodyText = 'Add note body';
 const Text editText = Text("edit");
+const Text deleteText = Text("delete");
 const Text saveText = Text("save");
 const Text cancellText = Text("Cancel");
 
