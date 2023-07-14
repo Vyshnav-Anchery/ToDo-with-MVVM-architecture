@@ -7,6 +7,8 @@ const String todoAppBarTitle = 'Todo App';
 const Text notesAppBarTitle = Text('Notes');
 const Text appBarTitle = Text('Todo');
 const String addStringText = 'Add Todo';
+const String addNoteTitleText = 'Add note title';
+const String addNoteBodyText = 'Add note body';
 const Text editText = Text("edit");
 const Text cancellText = Text("Cancell");
 
@@ -17,4 +19,5 @@ ThemeData appTheme = ThemeData(
 
 // boxname
 const String boxName = 'todos';
+const String noteName = 'notes';
 

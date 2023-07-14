@@ -5,7 +5,8 @@ import '../../utils/constants.dart';
 import '../../view_models/todo_view_model.dart';
 
 class NotesScreen extends StatelessWidget {
-  final TextEditingController _textEditingController = TextEditingController();
+  final TextEditingController _titleEditingController = TextEditingController();
+  final TextEditingController _bodyEditingController = TextEditingController();
 
   NotesScreen({Key? key}) : super(key: key);
 
@@ -18,44 +19,75 @@ class NotesScreen extends StatelessWidget {
         appBar: AppBar(
           title: notesAppBarTitle,
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () => showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                content: SingleChildScrollView(
+                    child: Column(
+                  children: [
+                    TextField(
+                      controller: _titleEditingController,
+                      decoration: const InputDecoration(
+                        hintText: addStringText,
+                      ),
+                    ),
+                    TextField(
+                      controller: _bodyEditingController,
+                      decoration: const InputDecoration(
+                        hintText: addStringText,
+                      ),
+                    ),
+                  ],
+                )),
+                actions: [
+                  TextButton(
+                      onPressed: () {
+                        if (_titleEditingController.text.isNotEmpty &&
+                            _bodyEditingController.text.isNotEmpty) {
+                          viewModel.addNotes(_titleEditingController.text,
+                              _bodyEditingController.text);
+                          _titleEditingController.clear();
+                          _bodyEditingController.clear();
+                          Navigator.pop(context);
+                        }
+                      },
+                      child: Text("Save"))
+                ],
+              );
+            },
+          ),
+          child: Icon(Icons.add),
+        ),
         body: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-              child: TextField(
-                controller: _textEditingController,
-                decoration: const InputDecoration(
-                  hintText: addStringText,
-                ),
-                onSubmitted: (value) {
-                  if (value.isNotEmpty) {
-                    viewModel.addTodo(value);
-                    _textEditingController.clear();
-                  }
-                },
-              ),
-            ),
             SliverGrid(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  final todo = viewModel.todos[index];
-                  return Card(
-                    child: Column(
-                      children: [
-                        ListTile(
-                          title: Text(todo.title),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(16.0),
-                          child: Text('Body Content'),
-                        ),
-                      ],
-                    ),
-                  );
+                  final note = viewModel.notes[index];
+                  if (note.noteTitle != null && note.notebody != null) {
+                    return Card(
+                      child: Column(
+                        children: [
+                          ListTile(
+                            title: Text("${note.noteTitle}"),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: Text("${note.notebody}"),
+                          ),
+                        ],
+                      ),
+                    );
+                  } else {
+                    return null;
+                  }
                 },
-                childCount: viewModel.todos.length,
+                childCount: viewModel.notes.length,
               ),
             ),
           ],

@@ -32,7 +32,7 @@ class TodoScreen extends StatelessWidget {
                       onChanged: (value) => viewModel.toggleTodoStatus(index),
                     ),
                     title: Text(
-                      todo.title,
+                      todo.title!,
                       style: TextStyle(
                         decoration: todo.isDone
                             ? TextDecoration.lineThrough
@@ -44,7 +44,7 @@ class TodoScreen extends StatelessWidget {
                       builder: (context) {
                         return EditDialogue(
                           index: index,
-                          value: todo.title,
+                          value: todo.title!,
                         );
                       },
                     ),
