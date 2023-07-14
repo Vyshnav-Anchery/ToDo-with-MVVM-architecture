@@ -3,9 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:stateless_statefull/utils/constants.dart';
 import 'package:stateless_statefull/views/widgets/edit_dialogue.dart';
 import '../../view_models/todo_view_model.dart';
+import '../widgets/floating_add_button.dart';
 
 class TodoScreen extends StatelessWidget {
-  final TextEditingController _textEditingController = TextEditingController();
 
   TodoScreen({super.key});
 
@@ -18,20 +18,9 @@ class TodoScreen extends StatelessWidget {
         appBar: AppBar(
           title: appBarTitle,
         ),
+        floatingActionButton: addTodo(context, viewModel),
         body: Column(
           children: [
-            TextField(
-              controller: _textEditingController,
-              decoration: const InputDecoration(
-                hintText: addStringText,
-              ),
-              onSubmitted: (value) {
-                if (value.isNotEmpty) {
-                  viewModel.addTodo(value);
-                  _textEditingController.clear();
-                }
-              },
-            ),
             Expanded(
               child: ListView.builder(
                 itemCount: viewModel.todos.length,
