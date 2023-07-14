@@ -1,65 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stateless_statefull/models/todo_model.dart';
+import 'package:stateless_statefull/views/widgets/cancellbutton.dart';
 
 import '../../utils/constants.dart';
 import '../../view_models/todo_view_model.dart';
+import '../widgets/floating_notes_add.dart';
 
 class NotesScreen extends StatelessWidget {
-  final TextEditingController _titleEditingController = TextEditingController();
-  final TextEditingController _bodyEditingController = TextEditingController();
-
-  NotesScreen({Key? key}) : super(key: key);
+  const NotesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<TodoViewModel>(context);
+    TextEditingController editTitleController = TextEditingController();
+    TextEditingController editbodyController = TextEditingController();
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: notesAppBarTitle,
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                content: SingleChildScrollView(
-                    child: Column(
-                  children: [
-                    TextField(
-                      controller: _titleEditingController,
-                      decoration: const InputDecoration(
-                        hintText: addStringText,
-                      ),
-                    ),
-                    TextField(
-                      controller: _bodyEditingController,
-                      decoration: const InputDecoration(
-                        hintText: addStringText,
-                      ),
-                    ),
-                  ],
-                )),
-                actions: [
-                  TextButton(
-                      onPressed: () {
-                        if (_titleEditingController.text.isNotEmpty &&
-                            _bodyEditingController.text.isNotEmpty) {
-                          viewModel.addNotes(_titleEditingController.text,
-                              _bodyEditingController.text);
-                          _titleEditingController.clear();
-                          _bodyEditingController.clear();
-                          Navigator.pop(context);
-                        }
-                      },
-                      child: Text("Save"))
-                ],
-              );
-            },
-          ),
-          child: Icon(Icons.add),
-        ),
+        floatingActionButton: notesFloatingbutton(context, viewModel),
         body: CustomScrollView(
           slivers: [
             SliverGrid(
@@ -70,18 +32,125 @@ class NotesScreen extends StatelessWidget {
                 (context, index) {
                   final note = viewModel.notes[index];
                   if (note.noteTitle != null && note.notebody != null) {
-                    return Card(
-                      child: Column(
-                        children: [
-                          ListTile(
-                            title: Text("${note.noteTitle}"),
+                    var size = MediaQuery.sizeOf(context);
+                    var padding = size.width * .05;
+                    return InkWell(
+                      child: Card(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  "${note.noteTitle}",
+                                  style: titleStyle,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    top: padding,
+                                    left: padding,
+                                    right: padding,
+                                    bottom: padding),
+                                child: Text(
+                                  "${note.notebody}",
+                                  style: bodyStyle,
+                                ),
+                              ),
+                            ],
                           ),
-                          Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: Text("${note.notebody}"),
-                          ),
-                        ],
+                        ),
                       ),
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              content: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    ListTile(
+                                      title: Text(
+                                        "${note.noteTitle}",
+                                        style: titleStyle,
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(
+                                          top: padding,
+                                          left: padding,
+                                          right: padding,
+                                          bottom: padding),
+                                      child: Text("${note.notebody}"),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              actions: [
+                                TextButton(
+                                    onPressed: () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (context) {
+                                          editTitleController.text =
+                                              "${note.noteTitle}";
+                                          editbodyController.text =
+                                              note.notebody!;
+                                          return AlertDialog(
+                                            content: SingleChildScrollView(
+                                              child: Column(
+                                                children: [
+                                                  TextFormField(
+                                                    controller:
+                                                        editTitleController,
+                                                    decoration:
+                                                        const InputDecoration(
+                                                      border:
+                                                          OutlineInputBorder(),
+                                                    ),
+                                                  ),
+                                                  TextField(
+                                                    maxLines: null,
+                                                    controller:
+                                                        editbodyController,
+                                                    decoration:
+                                                        const InputDecoration(
+                                                      border:
+                                                          OutlineInputBorder(),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            actions: [
+                                              TextButton(
+                                                onPressed: () {
+                                                  var values = NotesModel(
+                                                      noteTitle:
+                                                          editTitleController
+                                                              .text,
+                                                      notebody:
+                                                          editbodyController
+                                                              .text);
+                                                  viewModel.editNotes(
+                                                      index, values);
+                                                  Navigator.popUntil(context,
+                                                      (route) => route.isFirst);
+                                                },
+                                                child: saveText,
+                                              ),
+                                              const CancellBttn(),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    },
+                                    child: editText),
+                                const CancellBttn()
+                              ],
+                            );
+                          },
+                        );
+                      },
                     );
                   } else {
                     return null;

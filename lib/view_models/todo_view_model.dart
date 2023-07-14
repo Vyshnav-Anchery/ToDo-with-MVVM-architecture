@@ -39,8 +39,18 @@ class TodoViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> deleteNotes(int index) async {
+    await _noteDatabase.notesBox.deleteAt(index);
+    notifyListeners();
+  }
+
   Future<void> editTodo(int index, Todo value) async {
     await _database.todoBox.putAt(index, value);
+    notifyListeners();
+  }
+
+  Future<void> editNotes(int index, NotesModel value) async {
+    await _noteDatabase.notesBox.putAt(index, value);
     notifyListeners();
   }
 

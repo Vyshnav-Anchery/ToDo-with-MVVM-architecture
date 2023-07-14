@@ -22,7 +22,7 @@ void main() async {
         Provider<TodoDatabase>.value(value: database),
         Provider<NoteDatabase>.value(value: notesDatabase),
         ChangeNotifierProvider<TodoViewModel>(
-          create: (_) => TodoViewModel(database, notesDatabase),
+          create: (context) => TodoViewModel(database, notesDatabase),
         ),
       ],
       child: const MyApp(),
