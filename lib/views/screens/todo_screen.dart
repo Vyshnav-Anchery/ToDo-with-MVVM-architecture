@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stateless_statefull/utils/constants.dart';
+import 'package:stateless_statefull/view_models/theme_view_model.dart';
 import 'package:stateless_statefull/views/widgets/toggleTheme.dart';
 
 import '../../view_models/todo_view_model.dart';
@@ -13,6 +14,7 @@ class TodoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final viewModel = Provider.of<TodoViewModel>(context);
+    final themeViewModel = Provider.of<ThemeViewModel>(context);
 
     return SafeArea(
       child: Scaffold(
@@ -36,7 +38,7 @@ class TodoScreen extends StatelessWidget {
                       borderRadius: const BorderRadius.all(
                         Radius.circular(8),
                       ),
-                      color: viewModel.isDarkMode ?Colors.black54:Colors.amberAccent,
+                      color: themeViewModel.isDarkMode ?Colors.black54:Colors.amberAccent,
                     ),
                     child: ListTile(
                       leading: Checkbox(

@@ -10,15 +10,6 @@ class TodoViewModel extends ChangeNotifier {
 
   List<Todo> get todos => _database.todoBox.values.toList();
 
-  bool _isDarkMode = false;
-
-  bool get isDarkMode => _isDarkMode;
-
-  void toggleTheme() {
-    _isDarkMode = !_isDarkMode;
-    notifyListeners();
-  }
-
   Future<void> addTodo(String title) async {
     final todo = Todo(title: title);
     await _database.todoBox.add(todo);

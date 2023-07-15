@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:stateless_statefull/utils/constants.dart';
 import 'package:stateless_statefull/utils/note_database.dart';
 import 'package:stateless_statefull/view_models/notes_view_model.dart';
+import 'package:stateless_statefull/view_models/theme_view_model.dart';
 import 'package:stateless_statefull/views/screens/home_screen.dart';
 import 'utils/todo_database.dart';
 import 'view_models/todo_view_model.dart';
@@ -28,6 +29,9 @@ void main() async {
         ChangeNotifierProvider<NoteViewModel>(
           create: (context) => NoteViewModel(notesDatabase),
         ),
+        ChangeNotifierProvider<ThemeViewModel>(
+          create: (context) => ThemeViewModel(),
+        ),
       ],
       child: const MyApp(),
     ),
@@ -39,9 +43,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<TodoViewModel>(context);
+    final themeViewModel = Provider.of<ThemeViewModel>(context);
     return MaterialApp(
-      theme: viewModel.isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      theme: themeViewModel.isDarkMode ? ThemeData.dark() : ThemeData.light(),
       debugShowCheckedModeBanner: false,
       title: todoAppBarTitle,
       home: BotomNavBar(),
