@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:stateless_statefull/utils/note_database.dart';
 import '../../utils/todo_database.dart';
 import '../models/todo_model.dart';
 
 class TodoViewModel extends ChangeNotifier {
   int bottomNavIndex = 0;
   final TodoDatabase _database;
-  final NoteDatabase _noteDatabase;
 
-  TodoViewModel(this._database,this._noteDatabase);
+  TodoViewModel(this._database);
 
   List<Todo> get todos => _database.todoBox.values.toList();
-  List<NotesModel> get notes => _noteDatabase.notesBox.values.toList();
+
+  bool _isDarkMode = false;
+
+  bool get isDarkMode => _isDarkMode;
+
+  void toggleTheme() {
+    _isDarkMode = !_isDarkMode;
+    notifyListeners();
+  }
 
   Future<void> addTodo(String title) async {
     final todo = Todo(title: title);
     await _database.todoBox.add(todo);
-    notifyListeners();
-  }
-
-  Future<void> addNotes(String title, String body) async {
-    final note = NotesModel(noteTitle: title, notebody: body);
-    await _noteDatabase.notesBox.add(note);
     notifyListeners();
   }
 
@@ -39,18 +39,8 @@ class TodoViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> deleteNotes(int index) async {
-    await _noteDatabase.notesBox.deleteAt(index);
-    notifyListeners();
-  }
-
   Future<void> editTodo(int index, Todo value) async {
     await _database.todoBox.putAt(index, value);
-    notifyListeners();
-  }
-
-  Future<void> editNotes(int index, NotesModel value) async {
-    await _noteDatabase.notesBox.putAt(index, value);
     notifyListeners();
   }
 

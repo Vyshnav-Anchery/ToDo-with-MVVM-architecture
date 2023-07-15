@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:stateless_statefull/view_models/notes_view_model.dart';
 import 'package:stateless_statefull/views/widgets/cancellbutton.dart';
 
-import '../../utils/constants.dart';
-import '../../view_models/todo_view_model.dart';
+import '../../../utils/constants.dart';
+
 
 FloatingActionButton notesFloatingbutton(
-    BuildContext context, TodoViewModel viewModel) {
+    BuildContext context,NoteViewModel viewModel) {
   return FloatingActionButton(
     onPressed: () => showDialog(
       context: context,

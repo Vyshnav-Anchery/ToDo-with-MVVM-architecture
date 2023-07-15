@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utils/constants.dart';
-import '../../../view_models/todo_view_model.dart';
+import '../../../view_models/notes_view_model.dart';
 import '../cancellbutton.dart';
 import 'editNotes.dart';
 
 Future<dynamic> showNotesinPopup(
     BuildContext context, double padding, int index) {
-  final viewModel = Provider.of<TodoViewModel>(context, listen: false);
+  final viewModel = Provider.of<NoteViewModel>(context, listen: false);
   final note = viewModel.notes[index];
 
   delete() {

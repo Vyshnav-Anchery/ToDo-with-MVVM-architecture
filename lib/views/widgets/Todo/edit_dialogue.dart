@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stateless_statefull/utils/constants.dart';
 
-import '../../models/todo_model.dart';
-import '../../view_models/todo_view_model.dart';
+import '../../../models/todo_model.dart';
+import '../../../view_models/todo_view_model.dart';
+
 
 class EditDialogue extends StatelessWidget {
   final String value;

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stateless_statefull/view_models/notes_view_model.dart';
 
 import '../../../models/todo_model.dart';
 import '../../../utils/constants.dart';
-import '../../../view_models/todo_view_model.dart';
 import '../cancellbutton.dart';
 
 Future<dynamic> editNotes(BuildContext context, int index) {
-  final viewModel = Provider.of<TodoViewModel>(context, listen: false);
+  final viewModel = Provider.of<NoteViewModel>(context, listen: false);
   TextEditingController editTitleController = TextEditingController();
   TextEditingController editbodyController = TextEditingController();
   final note = viewModel.notes[index];

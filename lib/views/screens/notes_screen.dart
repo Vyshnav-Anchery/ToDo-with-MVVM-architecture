@@ -2,23 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../utils/constants.dart';
-import '../../view_models/todo_view_model.dart';
+import '../../view_models/notes_view_model.dart';
 import '../widgets/Notes/popupNotes.dart';
-import '../widgets/floating_notes_add.dart';
+import '../widgets/Notes/floating_notes_add.dart';
+import '../widgets/toggleTheme.dart';
 
 class NotesScreen extends StatelessWidget {
   const NotesScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<TodoViewModel>(context);
+    final notesviewModel = Provider.of<NoteViewModel>(context);
 
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           title: notesAppBarTitle,
+          actions: [
+            themeToggle(context),
+          ],
         ),
-        floatingActionButton: notesFloatingbutton(context, viewModel),
+        floatingActionButton: notesFloatingbutton(context, notesviewModel),
         body: CustomScrollView(
           slivers: [
             SliverGrid(
@@ -27,38 +31,34 @@ class NotesScreen extends StatelessWidget {
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
-                  final note = viewModel.notes[index];
-                  if (note.noteTitle != null && note.notebody != null) {
-                    var size = MediaQuery.sizeOf(context);
-                    var padding = size.width * .05;
-                    return InkWell(
-                      child: Card(
-                        child: SingleChildScrollView(
-                          child: ListTile(
-                            title: Text(
-                              note.noteTitle!,
-                              style: titleStyle,
-                            ),
-                            subtitle: Text(
-                              note.notebody!,
-                              style: bodyStyle,
-                            ),
+                  final note = notesviewModel.notes[index];
+                  var size = MediaQuery.sizeOf(context);
+                  var padding = size.width * .05;
+                  return InkWell(
+                    child: Card(
+                      child: SingleChildScrollView(
+                        child: ListTile(
+                          title: Text(
+                            note.noteTitle!,
+                            style: titleStyle,
+                          ),
+                          subtitle: Text(
+                            note.notebody!,
+                            style: bodyStyle,
                           ),
                         ),
                       ),
-                      onTap: () {
-                        showNotesinPopup(
-                          context,
-                          padding,
-                          index,
-                        );
-                      },
-                    );
-                  } else {
-                    return null;
-                  }
+                    ),
+                    onTap: () {
+                      showNotesinPopup(
+                        context,
+                        padding,
+                        index,
+                      );
+                    },
+                  );
                 },
-                childCount: viewModel.notes.length,
+                childCount: notesviewModel.notes.length,
               ),
             ),
           ],
