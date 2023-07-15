@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:stateless_statefull/views/widgets/appbar_ref.dart';
 
 import '../../utils/constants.dart';
 import '../../view_models/notes_view_model.dart';
@@ -16,7 +17,7 @@ class NotesScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
+        appBar: CustomAppBar(
           title: notesAppBarTitle,
           actions: [
             themeToggle(context),

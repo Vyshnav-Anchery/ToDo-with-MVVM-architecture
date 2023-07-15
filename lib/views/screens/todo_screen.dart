@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stateless_statefull/utils/constants.dart';
 import 'package:stateless_statefull/view_models/theme_view_model.dart';
+import 'package:stateless_statefull/views/widgets/appbar_ref.dart';
 import 'package:stateless_statefull/views/widgets/toggleTheme.dart';
 
 import '../../view_models/todo_view_model.dart';
@@ -18,12 +19,7 @@ class TodoScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: appBarTitle,
-          actions: [
-            themeToggle(context)
-          ],
-        ),
+        appBar: CustomAppBar(title: appBarTitle),
         floatingActionButton: addTodo(context, viewModel),
         body: Column(
           children: [
@@ -34,11 +30,13 @@ class TodoScreen extends StatelessWidget {
                   final todo = viewModel.todos[index];
                   return Container(
                     margin: const EdgeInsets.only(left: 20, right: 20, top: 20),
-                    decoration:  BoxDecoration(
+                    decoration: BoxDecoration(
                       borderRadius: const BorderRadius.all(
                         Radius.circular(8),
                       ),
-                      color: themeViewModel.isDarkMode ?Colors.black54:Colors.amberAccent,
+                      color: themeViewModel.isDarkMode
+                          ? Colors.black54
+                          : Colors.amberAccent,
                     ),
                     child: ListTile(
                       leading: Checkbox(
