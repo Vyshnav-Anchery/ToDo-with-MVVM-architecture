@@ -15,7 +15,7 @@ Future<dynamic> editNotes(BuildContext context, int index) {
   return showDialog(
     context: context,
     builder: (context) {
-      editTitleController.text = "${note.noteTitle}";
+      editTitleController.text = note.noteTitle!;
       editbodyController.text = note.notebody!;
       return AlertDialog(
         content: SingleChildScrollView(
@@ -24,15 +24,16 @@ Future<dynamic> editNotes(BuildContext context, int index) {
               TextFormField(
                 controller: editTitleController,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                ),
+                    border: OutlineInputBorder(), label: Text(addNoteTitle)),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               TextField(
                 maxLines: null,
                 controller: editbodyController,
                 decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                ),
+                    border: OutlineInputBorder(), label: Text(addNoteBody)),
               ),
             ],
           ),

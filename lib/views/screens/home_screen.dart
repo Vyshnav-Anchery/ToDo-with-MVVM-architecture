@@ -8,8 +8,8 @@ import '../widgets/bottomnavigation.dart';
 class BotomNavBar extends StatelessWidget {
   BotomNavBar({super.key});
   final screens = [
-    NotesScreen(),
-    TodoScreen(),
+    const NotesScreen(),
+    const TodoScreen(),
   ];
   @override
   Widget build(BuildContext context) {

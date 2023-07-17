@@ -20,13 +20,13 @@ FloatingActionButton notesFloatingbutton(
               TextField(
                 controller: titleEditingController,
                 decoration: const InputDecoration(
-                  hintText: addStringText,
+                  hintText: addNoteTitle,
                 ),
               ),
               TextField(
                 controller: bodyEditingController,
                 decoration: const InputDecoration(
-                  hintText: addStringText,
+                  hintText: addNoteBody,
                 ),
               ),
             ],
