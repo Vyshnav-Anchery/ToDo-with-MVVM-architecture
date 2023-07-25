@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:stateless_statefull/views/screens/notes_screen.dart';
 import 'package:stateless_statefull/views/screens/todo_screen.dart';
 import '../../view_models/todo_view_model.dart';
-import '../widgets/bottomnavigation.dart';
+import '../widgets/bottom_navigation.dart';
 
 class BotomNavBar extends StatelessWidget {
   BotomNavBar({super.key});

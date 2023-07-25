@@ -9,7 +9,7 @@ IconButton themeToggle(context) {
   return IconButton(
     onPressed: () => themeViewModel.toggleTheme(),
     icon: Icon(
-      Icons.dark_mode,
+      themeViewModel.isDarkMode ? Icons.light_mode : Icons.dark_mode,
       color: themeViewModel.isDarkMode ? Colors.white : Colors.black,
     ),
   );

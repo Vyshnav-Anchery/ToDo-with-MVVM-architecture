@@ -7,7 +7,7 @@ import 'package:stateless_statefull/views/widgets/appbar_ref.dart';
 import '../../view_models/todo_view_model.dart';
 import '../widgets/Todo/edit_dialogue.dart';
 import '../widgets/Todo/floating_add_button.dart';
-import '../widgets/toggleTheme.dart';
+import '../widgets/toggle_theme.dart';
 
 class TodoScreen extends StatelessWidget {
   const TodoScreen({super.key});
@@ -19,8 +19,10 @@ class TodoScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar:  CustomAppBar(title: appBarTitle,
-        actions: [themeToggle(context)],),
+        appBar: CustomAppBar(
+          title: appBarTitle,
+          actions: [themeToggle(context)],
+        ),
         floatingActionButton: addTodo(context, viewModel),
         body: Column(
           children: [

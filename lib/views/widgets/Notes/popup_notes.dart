@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../../../utils/constants.dart';
 import '../../../view_models/notes_view_model.dart';
-import '../cancellbutton.dart';
-import 'editNotes.dart';
+import '../cancel_button.dart';
+import 'edit_notes.dart';
 
 Future<dynamic> showNotesinPopup(
     BuildContext context, double padding, int index) {

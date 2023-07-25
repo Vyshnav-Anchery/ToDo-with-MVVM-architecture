@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stateless_statefull/view_models/notes_view_model.dart';
-import 'package:stateless_statefull/views/widgets/cancellbutton.dart';
+import 'package:stateless_statefull/views/widgets/cancel_button.dart';
 
 import '../../../utils/constants.dart';
 

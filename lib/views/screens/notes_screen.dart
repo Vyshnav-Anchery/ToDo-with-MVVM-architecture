@@ -4,9 +4,9 @@ import 'package:stateless_statefull/views/widgets/appbar_ref.dart';
 
 import '../../utils/constants.dart';
 import '../../view_models/notes_view_model.dart';
-import '../widgets/Notes/popupNotes.dart';
+import '../widgets/Notes/popup_notes.dart';
 import '../widgets/Notes/floating_notes_add.dart';
-import '../widgets/toggleTheme.dart';
+import '../widgets/toggle_theme.dart';
 
 class NotesScreen extends StatelessWidget {
   const NotesScreen({Key? key}) : super(key: key);
