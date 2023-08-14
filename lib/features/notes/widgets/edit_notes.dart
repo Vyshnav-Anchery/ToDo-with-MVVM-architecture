@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:stateless_statefull/features/notes/notes_model/notes_view_model.dart';
 
 import '../../../models/todo_model.dart';
-import '../../constsants/constants.dart';
-import '../cancel_button.dart';
+import '../../../utils/constants/constants.dart';
+import '../../../utils/widgets/cancel_button.dart';
 
 Future<dynamic> editNotes(BuildContext context, int index) {
   final viewModel = Provider.of<NoteViewModel>(context, listen: false);

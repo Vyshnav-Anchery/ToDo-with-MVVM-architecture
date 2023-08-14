@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stateless_statefull/utils/constsants/constants.dart';
+import 'package:stateless_statefull/utils/constants/constants.dart';
 
 class CancellBttn extends StatelessWidget {
   const CancellBttn({super.key});

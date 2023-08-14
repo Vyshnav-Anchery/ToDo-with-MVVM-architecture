@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../constsants/constants.dart';
-import '../../../features/notes/notes_model/notes_view_model.dart';
-import '../cancel_button.dart';
+import '../../../utils/constants/constants.dart';
+import '../notes_model/notes_view_model.dart';
+import '../../../utils/widgets/cancel_button.dart';
 import 'edit_notes.dart';
 
 Future<dynamic> showNotesinPopup(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stateless_statefull/utils/constsants/constants.dart';
+import 'package:stateless_statefull/utils/constants/constants.dart';
 import 'package:stateless_statefull/utils/note_database.dart';
 import 'package:stateless_statefull/features/notes/notes_model/notes_view_model.dart';
 import 'package:stateless_statefull/features/home/home_model/theme_view_model.dart';

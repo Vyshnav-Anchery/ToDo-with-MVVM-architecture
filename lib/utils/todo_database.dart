@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import '../models/todo_model.dart';
-import 'constsants/constants.dart';
+import 'constants/constants.dart';
 
 class TodoDatabase {
   Future<void> init() async {

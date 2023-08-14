@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stateless_statefull/utils/widgets/appbar_ref.dart';
 
-import '../../../utils/constsants/constants.dart';
+import '../../../utils/constants/constants.dart';
 import '../notes_model/notes_view_model.dart';
-import '../../../utils/widgets/Notes/popup_notes.dart';
-import '../../../utils/widgets/Notes/floating_notes_add.dart';
+import '../widgets/popup_notes.dart';
+import '../widgets/floating_notes_add.dart';
 import '../../../utils/widgets/toggle_theme.dart';
 
 class NotesScreen extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:stateless_statefull/utils/constsants/constants.dart';
+import 'package:stateless_statefull/utils/constants/constants.dart';
 import '../models/todo_model.dart';
 
 class NoteDatabase {
