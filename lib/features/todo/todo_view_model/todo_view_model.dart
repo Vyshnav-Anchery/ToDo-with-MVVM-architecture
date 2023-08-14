@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../utils/todo_database.dart';
-import '../../../models/todo_model.dart';
+import '../../../utils/todo_database.dart';
+import '../model/todo_model.dart';
 
 class TodoViewModel extends ChangeNotifier {
   int bottomNavIndex = 0;
@@ -8,7 +8,7 @@ class TodoViewModel extends ChangeNotifier {
 
   TodoViewModel(this._database);
 
-  List<Todo> get todos => _database.todoBox.values.toList();
+  List get todos => _database.todoBox.values.toList();
 
   Future<void> addTodo(String title) async {
     final todo = Todo(title: title);

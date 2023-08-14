@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stateless_statefull/utils/constants/constants.dart';
 import 'package:stateless_statefull/utils/note_database.dart';
-import 'package:stateless_statefull/features/notes/notes_model/notes_view_model.dart';
-import 'package:stateless_statefull/features/home/home_model/theme_view_model.dart';
+import 'package:stateless_statefull/features/notes/notes_view_model/notes_view_model.dart';
+import 'package:stateless_statefull/features/home/home_view_model/theme_view_model.dart';
 import 'package:stateless_statefull/features/home/ui/home_screen.dart';
+import 'features/todo/todo_view_model/todo_view_model.dart';
 import 'utils/todo_database.dart';
-import 'features/todo/todo_model/todo_view_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

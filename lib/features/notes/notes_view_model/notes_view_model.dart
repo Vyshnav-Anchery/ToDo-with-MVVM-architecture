@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/todo_model.dart';
 import '../../../utils/note_database.dart';
+import '../model/notes_model.dart';
 
 class NoteViewModel extends ChangeNotifier {
   final NoteDatabase _noteDatabase;
   NoteViewModel(this._noteDatabase);
-  List<NotesModel> get notes => _noteDatabase.notesBox.values.toList();
+  List get notes => _noteDatabase.notesBox.values.toList();
   
   Future<void> addNotes(String title, String body) async {
     final note = NotesModel(noteTitle: title, notebody: body);

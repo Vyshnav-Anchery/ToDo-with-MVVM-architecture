@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stateless_statefull/utils/constants/constants.dart';
-import 'package:stateless_statefull/features/home/home_model/theme_view_model.dart';
+import 'package:stateless_statefull/features/home/home_view_model/theme_view_model.dart';
 import 'package:stateless_statefull/utils/widgets/appbar_ref.dart';
-
-import '../todo_model/todo_view_model.dart';
+import '../todo_view_model/todo_view_model.dart';
 import '../widgets/edit_dialogue.dart';
 import '../widgets/floating_add_button.dart';
 import '../../../utils/widgets/toggle_theme.dart';

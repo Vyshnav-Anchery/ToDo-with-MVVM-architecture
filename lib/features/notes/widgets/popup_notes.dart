@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utils/constants/constants.dart';
-import '../notes_model/notes_view_model.dart';
+import '../notes_view_model/notes_view_model.dart';
 import '../../../utils/widgets/cancel_button.dart';
 import 'edit_notes.dart';
 

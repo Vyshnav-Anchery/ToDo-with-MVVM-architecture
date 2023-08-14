@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stateless_statefull/features/notes/ui/notes_screen.dart';
 import 'package:stateless_statefull/features/todo/ui/todo_screen.dart';
-import '../../todo/todo_model/todo_view_model.dart';
 import '../../../utils/widgets/bottom_navigation.dart';
+import '../../todo/todo_view_model/todo_view_model.dart';
 
 class BotomNavBar extends StatelessWidget {
   BotomNavBar({super.key});

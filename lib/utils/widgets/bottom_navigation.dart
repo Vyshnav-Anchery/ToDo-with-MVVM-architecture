@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../features/todo/todo_model/todo_view_model.dart';
+import '../../features/todo/todo_view_model/todo_view_model.dart';
 
 bottomNavigator(TodoViewModel notifier) {
   return BottomNavigationBar(

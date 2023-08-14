@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../utils/constants/constants.dart';
-import '../todo_model/todo_view_model.dart';
+import '../todo_view_model/todo_view_model.dart';
 
 FloatingActionButton addTodo(BuildContext context, TodoViewModel viewModel) {
   final TextEditingController textEditingController = TextEditingController();

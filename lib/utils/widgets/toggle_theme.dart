@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../features/home/home_model/theme_view_model.dart';
+import '../../features/home/home_view_model/theme_view_model.dart';
 
 IconButton themeToggle(context) {
   final themeViewModel = Provider.of<ThemeViewModel>(context);

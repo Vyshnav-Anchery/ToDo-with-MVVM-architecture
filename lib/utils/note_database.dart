@@ -1,6 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:stateless_statefull/utils/constants/constants.dart';
-import '../models/todo_model.dart';
+
+import '../features/notes/model/notes_model.dart';
 
 class NoteDatabase {
   Future<void> init() async {
