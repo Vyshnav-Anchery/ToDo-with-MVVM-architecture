@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../utils/todo_database.dart';
-import '../models/todo_model.dart';
+import '../../../../utils/todo_database.dart';
+import '../../../models/todo_model.dart';
 
 class TodoViewModel extends ChangeNotifier {
   int bottomNavIndex = 0;

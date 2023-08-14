@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-class ClassName {}
-
 // titles
 const String todoAppBarTitle = 'Todo App';
 const Text notesAppBarTitle = Text('Notes');

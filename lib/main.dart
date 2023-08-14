@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stateless_statefull/utils/constants.dart';
+import 'package:stateless_statefull/utils/constsants/constants.dart';
 import 'package:stateless_statefull/utils/note_database.dart';
-import 'package:stateless_statefull/view_models/notes_view_model.dart';
-import 'package:stateless_statefull/view_models/theme_view_model.dart';
-import 'package:stateless_statefull/views/screens/home_screen.dart';
+import 'package:stateless_statefull/features/notes/notes_model/notes_view_model.dart';
+import 'package:stateless_statefull/features/home/home_model/theme_view_model.dart';
+import 'package:stateless_statefull/features/home/ui/home_screen.dart';
 import 'utils/todo_database.dart';
-import 'view_models/todo_view_model.dart';
+import 'features/todo/todo_model/todo_view_model.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,8 +21,6 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        Provider<TodoDatabase>.value(value: database),
-        Provider<NoteDatabase>.value(value: notesDatabase),
         ChangeNotifierProvider<TodoViewModel>(
           create: (context) => TodoViewModel(database),
         ),
@@ -37,7 +35,6 @@ void main() async {
     ),
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 

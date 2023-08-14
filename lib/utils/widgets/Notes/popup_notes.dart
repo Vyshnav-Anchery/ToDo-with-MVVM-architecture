@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../utils/constants.dart';
-import '../../../view_models/notes_view_model.dart';
+import '../../constsants/constants.dart';
+import '../../../features/notes/notes_model/notes_view_model.dart';
 import '../cancel_button.dart';
 import 'edit_notes.dart';
 

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:stateless_statefull/views/widgets/appbar_ref.dart';
+import 'package:stateless_statefull/utils/widgets/appbar_ref.dart';
 
-import '../../utils/constants.dart';
-import '../../view_models/notes_view_model.dart';
-import '../widgets/Notes/popup_notes.dart';
-import '../widgets/Notes/floating_notes_add.dart';
-import '../widgets/toggle_theme.dart';
+import '../../../utils/constsants/constants.dart';
+import '../notes_model/notes_view_model.dart';
+import '../../../utils/widgets/Notes/popup_notes.dart';
+import '../../../utils/widgets/Notes/floating_notes_add.dart';
+import '../../../utils/widgets/toggle_theme.dart';
 
 class NotesScreen extends StatelessWidget {
   const NotesScreen({Key? key}) : super(key: key);

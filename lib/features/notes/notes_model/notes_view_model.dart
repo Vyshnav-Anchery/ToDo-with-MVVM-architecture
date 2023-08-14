@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../models/todo_model.dart';
-import '../utils/note_database.dart';
+import '../../../models/todo_model.dart';
+import '../../../utils/note_database.dart';
 
 class NoteViewModel extends ChangeNotifier {
   final NoteDatabase _noteDatabase;
