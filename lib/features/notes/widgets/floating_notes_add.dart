@@ -23,6 +23,7 @@ FloatingActionButton notesFloatingbutton(
                   hintText: addNoteTitle,
                 ),
               ),
+              const SizedBox(height: 20,),
               TextField(
                 controller: bodyEditingController,
                 decoration: const InputDecoration(

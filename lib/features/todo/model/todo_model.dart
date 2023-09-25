@@ -1,5 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 part 'todo_model.g.dart';
+
 @HiveType(typeId: 1)
 class Todo extends HiveObject {
   @HiveField(0)

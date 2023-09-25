@@ -1,12 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import '../../../utils/constants/constants.dart';
 import '../todo_view_model/todo_view_model.dart';
 
-FloatingActionButton addTodo(BuildContext context, TodoViewModel viewModel) {
+FloatingActionButton addTodoButton(
+    BuildContext context, TodoViewModel viewModel) {
   final TextEditingController textEditingController = TextEditingController();
   addItem() {
     if (textEditingController.text.isNotEmpty) {
       viewModel.addTodo(textEditingController.text);
+      log(DateTime.now().toString());
       textEditingController.clear();
       Navigator.pop(context);
     }

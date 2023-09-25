@@ -13,10 +13,10 @@ class BotomNavBar extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    final viewModel = Provider.of<TodoViewModel>(context);
+    final provider = Provider.of<TodoViewModel>(context);
     return Scaffold(
-      body: screens[viewModel.bottomNavIndex],
-      bottomNavigationBar: bottomNavigator(viewModel),
+      body: screens[provider.bottomNavIndex],
+      bottomNavigationBar: bottomNavigator(provider),
     );
   }
 }

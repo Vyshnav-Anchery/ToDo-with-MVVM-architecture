@@ -11,13 +11,13 @@ class ThemeViewModel extends ChangeNotifier {
 
   bool get isDarkMode => _isDarkMode;
 
-  Future<void> _loadTheme() async {
+  _loadTheme() async {
     _prefs = await SharedPreferences.getInstance();
     _isDarkMode = _prefs.getBool('isDarkMode') ?? false;
     notifyListeners();
   }
 
-  Future<void> toggleTheme() async {
+  toggleTheme() async {
     _isDarkMode = !_isDarkMode;
     await _prefs.setBool('isDarkMode', _isDarkMode);
     notifyListeners();

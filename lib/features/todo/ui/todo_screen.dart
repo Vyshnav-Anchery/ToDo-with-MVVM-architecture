@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:stateless_statefull/utils/constants/constants.dart';
 import 'package:stateless_statefull/features/home/home_view_model/theme_view_model.dart';
+import 'package:stateless_statefull/utils/theme/theme.dart';
 import 'package:stateless_statefull/utils/widgets/appbar_ref.dart';
 import '../todo_view_model/todo_view_model.dart';
 import '../widgets/edit_dialogue.dart';
@@ -22,7 +23,7 @@ class TodoScreen extends StatelessWidget {
           title: appBarTitle,
           actions: [themeToggle(context)],
         ),
-        floatingActionButton: addTodo(context, viewModel),
+        floatingActionButton: addTodoButton(context, viewModel),
         body: Column(
           children: [
             Expanded(
@@ -37,8 +38,8 @@ class TodoScreen extends StatelessWidget {
                         Radius.circular(8),
                       ),
                       color: themeViewModel.isDarkMode
-                          ? Colors.black54
-                          : Colors.amberAccent,
+                          ? CustomTheme.todoDarkColor
+                          : CustomTheme.todoLightColor,
                     ),
                     child: ListTile(
                       leading: Checkbox(
@@ -60,7 +61,7 @@ class TodoScreen extends StatelessWidget {
                             index: index,
                             value: todo.title!,
                           );
-                        },
+                        }
                       ),
                       trailing: IconButton(
                         icon: const Icon(Icons.delete),
